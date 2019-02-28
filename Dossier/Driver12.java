@@ -20,7 +20,8 @@ public class Driver12
         frame.setSize(400, 400);
         frame.setLocation(200, 100);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setContentPane(new JPanel());
+        frame.setContentPane(new Menu());
         frame.setVisible(true);
     }
 }
+//JOptionPane.showMessageDialog(null,"warning message","title",JOptionPane.ERROR_MESSAGE);

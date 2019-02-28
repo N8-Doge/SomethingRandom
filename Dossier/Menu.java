@@ -1,33 +1,21 @@
-
+import java.awt.*;
+import javax.swing.*;
 /**
- * Write a description of class Menu here.
+ * Program menu
  *
- * @author (your name)
- * @version (a version number or a date)
+ * @author      Nathan Chen
+ * @version     2-27-19
  */
-public class Menu
+public class Menu extends Window
 {
-    // instance variables - replace the example below with your own
-    private int x;
-
-    /**
-     * Constructor for objects of class Menu
-     */
     public Menu()
     {
-        // initialise instance variables
-        x = 0;
-    }
-
-    /**
-     * An example of a method - replace this comment with your own
-     *
-     * @param  y  a sample parameter for a method
-     * @return    the sum of x and y
-     */
-    public int sampleMethod(int y)
-    {
-        // put your code here
-        return x + y;
+        super("Menu");
+        JPanel center = new JPanel();
+        center.setLayout(new GridLayout(3,1));
+        center.add(new JButton("View Schedule"));
+        center.add(new JButton("Reminders"));
+        center.add(new JButton("New Item"));
+        add(center, BorderLayout.CENTER);
     }
 }
