@@ -1,0 +1,7 @@
+#BlueJ class context
+comment0.target=Driver12
+comment0.text=\r\n\ Used\ to\ start\ up\ jar\ file,\ template\ from\ torbert's\ driver\r\n\ \r\n\ @author\ \ \ \ \ \ Nathan\ Chen\r\n\ @version\ \ \ \ \ 2-27-19\r\n
+comment1.params=args
+comment1.target=void\ main(java.lang.String[])
+comment1.text=\r\n\ Runs\ program\r\n\ \r\n\ @param\ \ \ args\ \ \ \ For\ jar,\ ignore\r\n
+numComments=2
