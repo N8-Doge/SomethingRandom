@@ -1,4 +1,12 @@
 #BlueJ class context
-comment0.params=
-comment0.target=Menu()
-numComments=1
+comment0.target=Menu
+comment0.text=\r\n\ Program\ menu\r\n\r\n\ @author\ \ \ \ \ \ Nathan\ Chen\r\n\ @version\ \ \ \ \ 2-27-19\r\n
+comment1.params=
+comment1.target=Menu()
+comment2.params=pane
+comment2.target=void\ addComponentsToPane(java.awt.Container)
+comment2.text=\r\n\ Do\ it\ really\ be\ another\ copy\ from\ Stack\ Overflow\ moment?\ \r\n\ Yes,\ it\ really\ do.\r\n
+comment3.params=text\ container
+comment3.target=void\ addAButton(java.lang.String,\ java.awt.Container)
+comment3.text=\r\n\ If\ it\ works\ its\ worth\ \r\n\ ~Ghandhi\r\n
+numComments=4

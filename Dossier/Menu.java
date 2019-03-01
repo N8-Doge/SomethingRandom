@@ -13,13 +13,28 @@ public class Menu extends Window
     {
         super("Menu");
         JPanel center = new JPanel();
-        center.setLayout(new GridLayout(3,1));
-        viewButton = new JButton("View Schedule");
-        center.add(viewButton);
-        remindButton = new JButton("Reminders");
-        center.add(remindButton);
-        newButton = new JButton("New Item");
-        center.add(newButton);
+        addComponentsToPane(center);
         add(center, BorderLayout.CENTER);
+    }
+    
+    /**
+     * Do it really be another copy from Stack Overflow moment? 
+     * Yes, it really do.
+     */
+    public static void addComponentsToPane(Container pane){
+        pane.setLayout(new BoxLayout(pane, BoxLayout.Y_AXIS));
+        addAButton("Menu", pane);
+        addAButton("View Schedule", pane);
+        addAButton("New Item", pane);
+    }
+    
+    /**
+     * If it works its worth 
+     * ~Ghandhi
+     */
+    public static void addAButton(String text, Container container){
+        JButton button = new JButton(text);
+        button.setAlignmentX(Component.CENTER_ALIGNMENT);
+        container.add(button);
     }
 }
