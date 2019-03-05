@@ -1,19 +1,19 @@
 
 /**
- * Write a description of class ScheduleCalendar here.
+ * Write a description of class ClassCreation here.
  *
  * @author (your name)
  * @version (a version number or a date)
  */
-public class ScheduleCalendar extends Schedule
+public class ClassCreation extends Create
 {
     // instance variables - replace the example below with your own
     private int x;
 
     /**
-     * Constructor for objects of class ScheduleCalendar
+     * Constructor for objects of class ClassCreation
      */
-    public ScheduleCalendar()
+    public ClassCreation()
     {
         // initialise instance variables
         x = 0;

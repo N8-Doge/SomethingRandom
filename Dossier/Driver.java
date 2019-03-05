@@ -7,7 +7,7 @@ import javax.swing.*;
  * @author      Nathan Chen
  * @version     2-27-19
  */
-public class Driver12
+public class Driver
 {
     /**
      * Runs program
@@ -20,8 +20,7 @@ public class Driver12
         frame.setSize(400, 400);
         frame.setLocation(200, 100);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setContentPane(new Menu());
+        frame.setContentPane(new Display());
         frame.setVisible(true);
     }
 }
-//JOptionPane.showMessageDialog(null,"warning message","title",JOptionPane.ERROR_MESSAGE);

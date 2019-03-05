@@ -1,19 +1,19 @@
 
 /**
- * Write a description of class ScheduleList here.
+ * Write a description of class ItemCreation here.
  *
  * @author (your name)
  * @version (a version number or a date)
  */
-public class ScheduleList extends Schedule
+public class ItemCreation extends Create
 {
     // instance variables - replace the example below with your own
     private int x;
 
     /**
-     * Constructor for objects of class ScheduleList
+     * Constructor for objects of class ItemCreation
      */
-    public ScheduleList()
+    public ItemCreation()
     {
         // initialise instance variables
         x = 0;

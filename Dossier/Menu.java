@@ -1,4 +1,5 @@
 import java.awt.*;
+import java.awt.event.*;
 import javax.swing.*;
 /**
  * Program menu
@@ -8,33 +9,73 @@ import javax.swing.*;
  */
 public class Menu extends Window
 {
-    private static JButton viewButton, remindButton, newButton;
-    public Menu()
+    /**
+     * Creates the class
+     * 
+     * @param       buttonListeners     ActionListener array for buttons
+     */
+    public Menu(ActionListener[] buttonListeners)
     {
         super("Menu");
         JPanel center = new JPanel();
-        addComponentsToPane(center);
+        center.setLayout(new GridLayout(3,1));
+        String[] buttonNames = {"View Tasks","Reminders","New Task"};
+        JButton[] buttons = {new JButton(), new JButton(), new JButton()};
+        addButtons(center, buttonNames, buttons, buttonListeners);
         add(center, BorderLayout.CENTER);
+        
+        JPanel south = new JPanel();
+        south.setLayout(new GridLayout(1,3));
+        String[] lowerButtonNames = {"Close", "Info", "Options"};
+        JButton[] lowerButtons = {new JButton(), new JButton(), new JButton()};
+        ActionListener[] lowerButtonListeners = {new CloseListener(), new InfoListener(), new OptionsListener()};
+        addButtons(south, lowerButtonNames, lowerButtons, lowerButtonListeners);
+        add(south, BorderLayout.SOUTH);
     }
     
     /**
-     * Do it really be another copy from Stack Overflow moment? 
-     * Yes, it really do.
+     * Listener class for Close Button
      */
-    public static void addComponentsToPane(Container pane){
-        pane.setLayout(new BoxLayout(pane, BoxLayout.Y_AXIS));
-        addAButton("Menu", pane);
-        addAButton("View Schedule", pane);
-        addAButton("New Item", pane);
+    private class CloseListener implements ActionListener{
+        /**
+         * Closes program
+         * 
+         * @param   e   ActionEvent for button press
+         */
+        public void actionPerformed(ActionEvent e){
+            System.exit(0);
+        }
     }
     
     /**
-     * If it works its worth 
-     * ~Ghandhi
+     * Listener class for Info Button
      */
-    public static void addAButton(String text, Container container){
-        JButton button = new JButton(text);
-        button.setAlignmentX(Component.CENTER_ALIGNMENT);
-        container.add(button);
+    private class InfoListener implements ActionListener{
+        /**
+         * Displays info as JOptionPane
+         * 
+         * @param   e   ActionEvent for button press
+         */
+        public void actionPerformed(ActionEvent e){
+            String s = "Group Project by:";
+            s+="\nNathan Chen, Benjamin Tu";
+            s+="\nAlexis Raya, Leo Ding, Javier De La Cruz";
+            s+="\nPlease rate our project!";
+            JOptionPane.showMessageDialog(null,s);
+        }
+    }
+    
+    /**
+     * Listener class for Options Buttons
+     */
+    private class OptionsListener implements ActionListener{
+        /**
+         * Displays Options
+         * 
+         * @param   e   ActionEvent for button press
+         */
+        public void actionPerformed(ActionEvent e){
+            JOptionPane.showMessageDialog(null,"Options in development");
+        }
     }
 }
