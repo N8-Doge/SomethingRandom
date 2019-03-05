@@ -1,10 +1,11 @@
 #BlueJ class context
-comment0.target=Window
-comment0.text=\r\n\ A\ Java\ GUI\ Panel\ with\ a\ few\ things\ laid\ out\r\n\r\n\ @author\ \ \ \ \ \ Nathan\ Chen\r\n\ @version\ \ \ \ \ 2-27-19\r\n
-comment1.params=headerText
-comment1.target=Window(java.lang.String)
-comment1.text=\r\n\ Constructor\ makes\ Window\ with\ a\ header\r\n\ \r\n\ @param\ \ \ headerText\ \ String\ to\ go\ in\ header\r\n
-comment2.params=c\ s\ b\ a
-comment2.target=void\ addButtons(java.awt.Container,\ java.lang.String[],\ javax.swing.JButton[],\ java.awt.event.ActionListener[])
-comment2.text=\r\n\ Adds\ JButtons\ to\ a\ Container\r\n\ \r\n\ @param\ \ \ c\ \ \ Container\ where\ JButtons\ go\r\n\ @param\ \ \ s\ \ \ Array\ of\ Strings\ for\ JButton\ text\r\n\ @param\ \ \ b\ \ \ List\ of\ JButtons\r\n\ @param\ \ \ a\ \ \ List\ of\ Listeners\r\n
+comment0.params=headerText
+comment0.target=Window(java.lang.String)
+comment0.text=\r\n\ Constructor\ makes\ Window\ with\ a\ header\r\n\ \r\n\ @param\ \ \ headerText\ \ String\ to\ go\ in\ header\r\n
+comment1.params=c\ s\ b\ a
+comment1.target=void\ addButtons(java.awt.Container,\ java.lang.String[],\ javax.swing.JButton[],\ java.awt.event.ActionListener[])
+comment1.text=\r\n\ Adds\ JButtons\ to\ a\ Container\r\n\ \r\n\ @param\ \ \ c\ \ \ Container\ where\ JButtons\ go\r\n\ @param\ \ \ s\ \ \ Array\ of\ Strings\ for\ JButton\ text\r\n\ @param\ \ \ b\ \ \ List\ of\ JButtons\r\n\ @param\ \ \ a\ \ \ List\ of\ Listeners\r\n
+comment2.params=c\ s\ t
+comment2.target=void\ addTextFields(java.awt.Container,\ java.lang.String[],\ javax.swing.JTextField[])
+comment2.text=\r\n\ Adds\ JTextFields\ to\ a\ Container\r\n\ \r\n\ @param\ \ \ c\ \ \ Container\ where\ JTextFields\ go\r\n\ @param\ \ \ s\ \ \ Array\ of\ Strings\ for\ JTextField\ tooltip\r\n\ @param\ \ \ t\ \ \ List\ of\ JTextFields\r\n
 numComments=3

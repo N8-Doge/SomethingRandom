@@ -1,7 +1,5 @@
 #BlueJ class context
-comment0.target=Menu
-comment0.text=\r\n\ Program\ menu\r\n\r\n\ @author\ \ \ \ \ \ Nathan\ Chen\r\n\ @version\ \ \ \ \ 2-27-19\r\n
-comment1.params=buttonListeners
-comment1.target=Menu(java.awt.event.ActionListener[])
-comment1.text=\r\n\ Creates\ the\ class\r\n\ \r\n\ @param\ \ \ \ \ \ \ buttonListeners\ \ \ \ \ ActionListener\ array\ for\ buttons\r\n
-numComments=2
+comment0.params=buttonListeners
+comment0.target=Menu(java.awt.event.ActionListener[])
+comment0.text=\r\n\ Creates\ the\ class\r\n\ \r\n\ @param\ \ \ \ \ \ \ buttonListeners\ \ \ \ \ ActionListener\ array\ for\ buttons\r\n
+numComments=1

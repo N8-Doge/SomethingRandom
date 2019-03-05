@@ -5,7 +5,7 @@
  * @author (your name)
  * @version (a version number or a date)
  */
-public class ItemCreation extends Create
+public class ItemCreation extends Window
 {
     // instance variables - replace the example below with your own
     private int x;
@@ -15,8 +15,7 @@ public class ItemCreation extends Create
      */
     public ItemCreation()
     {
-        // initialise instance variables
-        x = 0;
+        super("New Item");
     }
 
     /**

@@ -12,7 +12,7 @@ public class Display extends JPanel
     //Instance variables
     private Menu displayMenu;
     private CreateMenu displayCreateMenu;
-    
+    private ClassCreation displayClassCreation;
     /**
      * Default constructor
      */
@@ -31,6 +31,10 @@ public class Display extends JPanel
         createButtons[0] = new CreateClassListener();
         createButtons[1] = new CreateTaskListener();
         displayCreateMenu = new CreateMenu(createButtons);
+        
+        //ClassCreation
+        ActionListener classConfirmButton = new CreateClassConfirmListener();
+        displayClassCreation = new ClassCreation(classConfirmButton);
     }
 
     /**
@@ -41,76 +45,39 @@ public class Display extends JPanel
         repaint();
     }
     
-    /**
-     * Listener class for View Button in Menu
-     */
     private class MenuViewListener implements ActionListener{
-        /**
-         * Goes to Calendar page
-         * 
-         * @param   e   ActionEvent for button press
-         */
         public void actionPerformed(ActionEvent e){
             removeAll();
             update();
         }
     }
-    
-    /**
-     * Listener class for Reminder Button in Menu
-     */
     private class MenuRemindListener implements ActionListener{
-        /**
-         * Goes to Reminder page
-         * 
-         * @param   e   ActionEvent for button press
-         */
         public void actionPerformed(ActionEvent e){
             removeAll();
             update();
         }
     }
-    
-    /**
-     * Listener class for Create Button in Menu
-     */
     private class MenuCreateListener implements ActionListener{
-        /**
-         * Goes to Creation Page
-         * 
-         * @param   e   ActionEvent for button press
-         */
         public void actionPerformed(ActionEvent e){
             removeAll();
             add(displayCreateMenu);
             update();
         }
     }
-    
-    /**
-     * Listener class for Class Button in Create
-     */
     private class CreateClassListener implements ActionListener{
-        /**
-         * Goes to Class Creation Page
-         * 
-         * @param   e   ActionEvent for button press
-         */
+        public void actionPerformed(ActionEvent e){
+            removeAll();
+            add(displayClassCreation);
+            update();
+        }
+    }
+    private class CreateTaskListener implements ActionListener{
         public void actionPerformed(ActionEvent e){
             removeAll();
             update();
         }
     }
-    
-    /**
-     * Listener class for Task Button in Create
-     */
-    private class CreateTaskListener implements ActionListener{
-        /**
-         * Goes to Task Creation Page
-         * 
-         * @param   e   ActionEvent for button press
-         */
+    private class CreateClassConfirmListener implements ActionListener{
         public void actionPerformed(ActionEvent e){
             removeAll();
             update();

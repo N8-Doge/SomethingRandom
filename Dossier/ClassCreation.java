@@ -1,33 +1,33 @@
-
+import java.awt.*;
+import java.awt.event.*;
+import javax.swing.*;
 /**
- * Write a description of class ClassCreation here.
+ * Menu to create a class
  *
- * @author (your name)
- * @version (a version number or a date)
+ * @author      Nathan Chen
+ * @version     2-27-19
  */
-public class ClassCreation extends Create
+public class ClassCreation extends Window
 {
-    // instance variables - replace the example below with your own
-    private int x;
-
     /**
-     * Constructor for objects of class ClassCreation
+     * Creates the class
+     * 
+     * @param   a   Listener for Confirm button
      */
-    public ClassCreation()
+    public ClassCreation(ActionListener a)
     {
-        // initialise instance variables
-        x = 0;
-    }
-
-    /**
-     * An example of a method - replace this comment with your own
-     *
-     * @param  y  a sample parameter for a method
-     * @return    the sum of x and y
-     */
-    public int sampleMethod(int y)
-    {
-        // put your code here
-        return x + y;
+        super("New Class");
+        JPanel center = new JPanel();
+        center.setLayout(new GridLayout(4,1));
+        String[] fieldText = {"Class Name","Period # (Optional)"};
+        JTextField[] fields = {new JTextField(), new JTextField()};
+        addTextFields(center, fieldText, fields);
+        add(center, BorderLayout.CENTER);
+        
+        JPanel south = new JPanel();
+        JButton confirm = new JButton("Confirm");
+        confirm.addActionListener(a);
+        south.add(confirm);
+        add(south, BorderLayout.SOUTH);
     }
 }

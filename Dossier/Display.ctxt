@@ -1,10 +1,8 @@
 #BlueJ class context
-comment0.target=Display
-comment0.text=\r\n\ Display\ controlling\ where\ to\ go\r\n\r\n\ @author\ \ \ \ \ \ Nathan\ Chen\r\n\ @version\ \ \ \ \ 3-4-19\r\n
+comment0.params=
+comment0.target=Display()
+comment0.text=\r\n\ Default\ constructor\r\n
 comment1.params=
-comment1.target=Display()
-comment1.text=\r\n\ Default\ constructor\r\n
-comment2.params=
-comment2.target=void\ update()
-comment2.text=\r\n\ Updates\ the\ panel\r\n
-numComments=3
+comment1.target=void\ update()
+comment1.text=\r\n\ Updates\ the\ panel\r\n
+numComments=2
