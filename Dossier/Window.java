@@ -1,6 +1,8 @@
+import java.io.*;
 import java.awt.*;
-import java.awt.event.*;
+import java.util.*;
 import javax.swing.*;
+import java.awt.event.*;
 /**
  * A Java GUI Panel laid out for Menu and CreateMenu
  *
@@ -31,14 +33,13 @@ public abstract class Window extends JPanel
      * 
      * @param   c   Container where JButtons go
      * @param   s   Array of Strings for JButton text
-     * @param   b   List of JButtons
      * @param   a   List of Listeners
      */
-    public void addButtons(Container c, String[] s, JButton[] b, ActionListener[] a){
+    public void addButtons(Container c, String[] s, ActionListener[] a){
         for(int i=0;i<s.length;i++){
-            b[i] = new JButton(s[i]);
-            b[i].addActionListener(a[i]);
-            c.add(b[i]);
+            JButton b = new JButton(s[i]);
+            b.addActionListener(a[i]);
+            c.add(b);
         }
     }
     
@@ -47,13 +48,12 @@ public abstract class Window extends JPanel
      * 
      * @param   c   Container where JTextFields go
      * @param   s   Array of Strings for JTextField tooltip
-     * @param   t   List of JTextFields
      */
-    public void addTextFields(Container c, String[] s, JTextField[] t){
+    public void addTextFields(Container c, String[] s){
         for(int i=0;i<s.length;i++){
             c.add(new JLabel(s[i]));
-            t[i] = new JTextField();
-            c.add(t[i]);
+            JTextField t = new JTextField();
+            c.add(t);
         }
     }
 }

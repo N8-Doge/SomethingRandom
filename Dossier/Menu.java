@@ -20,16 +20,14 @@ public class Menu extends Window
         JPanel center = new JPanel();
         center.setLayout(new GridLayout(3,1));
         String[] buttonNames = {"View Tasks","Reminders","New Task"};
-        JButton[] buttons = {new JButton(), new JButton(), new JButton()};
-        addButtons(center, buttonNames, buttons, buttonListeners);
+        addButtons(center, buttonNames, buttonListeners);
         add(center, BorderLayout.CENTER);
         
         JPanel south = new JPanel();
         south.setLayout(new GridLayout(1,3));
         String[] lowerButtonNames = {"Close", "Info", "Options"};
-        JButton[] lowerButtons = {new JButton(), new JButton(), new JButton()};
         ActionListener[] lowerButtonListeners = {new CloseListener(), new InfoListener(), new OptionsListener()};
-        addButtons(south, lowerButtonNames, lowerButtons, lowerButtonListeners);
+        addButtons(south, lowerButtonNames, lowerButtonListeners);
         add(south, BorderLayout.SOUTH);
     }
     
@@ -75,7 +73,7 @@ public class Menu extends Window
          * @param   e   ActionEvent for button press
          */
         public void actionPerformed(ActionEvent e){
-            JOptionPane.showMessageDialog(null,"Options in development");
+            JOptionPane.showMessageDialog(null,"Options in Development");
         }
     }
 }

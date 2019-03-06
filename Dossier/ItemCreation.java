@@ -1,32 +1,34 @@
-
+import java.io.*;
+import java.awt.*;
+import java.util.*;
+import javax.swing.*;
+import java.awt.event.*;
 /**
- * Write a description of class ItemCreation here.
+ * Menu to create a item
  *
- * @author (your name)
- * @version (a version number or a date)
+ * @author      Nathan Chen
+ * @version     3-5-19
  */
 public class ItemCreation extends Window
 {
-    // instance variables - replace the example below with your own
-    private int x;
-
     /**
-     * Constructor for objects of class ItemCreation
+     * Creates the class
+     * 
+     * @param   buttonListeners   Listeners for buttons in class
      */
-    public ItemCreation()
+    public ItemCreation(ActionListener[] buttonListeners, ArrayList<String> classes)
     {
         super("New Item");
-    }
-
-    /**
-     * An example of a method - replace this comment with your own
-     *
-     * @param  y  a sample parameter for a method
-     * @return    the sum of x and y
-     */
-    public int sampleMethod(int y)
-    {
-        // put your code here
-        return x + y;
+        JPanel center = new JPanel();
+        center.setLayout(new GridLayout(6,1));
+        String[] fieldText = {"Item Name","Due Date (Optional)", "Notes (Optional)"};
+        addTextFields(center, fieldText);
+        add(center, BorderLayout.CENTER);
+        
+        JPanel south = new JPanel();
+        south.setLayout(new GridLayout(1,2));
+        String[] lowerText = {"Back","Confirm"};
+        addButtons(south, lowerText, buttonListeners);
+        add(south, BorderLayout.SOUTH);
     }
 }

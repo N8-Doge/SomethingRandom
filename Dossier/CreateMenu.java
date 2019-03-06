@@ -18,10 +18,9 @@ public class CreateMenu extends Window
     {
         super("Create:");
         JPanel center = new JPanel();
-        center.setLayout(new GridLayout(2,1));
-        String[] buttonNames = {"New Class","New Task"};
-        JButton[] buttons = {new JButton(), new JButton()};
-        addButtons(center, buttonNames, buttons, buttonListeners);
+        center.setLayout(new GridLayout(3,1));
+        String[] buttonNames = {"New Class","New Task","Back"};
+        addButtons(center, buttonNames, buttonListeners);
         add(center, BorderLayout.CENTER);
     }
 }
