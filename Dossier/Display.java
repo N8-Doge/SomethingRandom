@@ -38,10 +38,7 @@ public class Display extends JPanel
         }
         
         //ArrayList of classes
-        ArrayList<String> classes = new ArrayList<String>();
-        while(infile.hasNext()){
-            classes.add(infile.next());
-        }
+        ArrayList<String> classes = getClasses(infile, new ArrayList<String>());
         
         //Menu
         ActionListener[] menuButtons = new ActionListener[3];
@@ -71,6 +68,22 @@ public class Display extends JPanel
         displayItemCreation = new ItemCreation(itemCreateButtons, classes);
     }
 
+    /**
+     * Helper method for getting classes from a scanner recursively
+     * 
+     * @param   scannerIn   Scanner where things are read
+     * @param   s           ArrayList of strings to append to
+     */
+    public ArrayList<String> getClasses(Scanner scannerIn, ArrayList<String> s){
+        ArrayList<String> foo = s;
+        if(infile.hasNext()){
+            String next = scannerIn.next();
+            foo = getClasses(scannerIn, s);
+            foo.add(next);
+        }
+        return foo;
+    }
+    
     /**
      * Updates the panel
      */

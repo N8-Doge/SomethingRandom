@@ -20,7 +20,12 @@ public class ItemCreation extends Window
     {
         super("New Item");
         JPanel center = new JPanel();
-        center.setLayout(new GridLayout(6,1));
+        center.setLayout(new GridLayout(7,1));
+        String[] arr = new String[classes.size()];
+        for(int i=0;i<classes.size();i++)
+            arr[i]=classes.get(i);
+        JComboBox classList = new JComboBox(arr);
+        center.add(classList);
         String[] fieldText = {"Item Name","Due Date (Optional)", "Notes (Optional)"};
         addTextFields(center, fieldText);
         add(center, BorderLayout.CENTER);
