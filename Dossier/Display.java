@@ -36,10 +36,10 @@ public class Display extends JPanel
         catch(Exception e){
             System.out.println(""+e);
         }
-        
+
         //ArrayList of classes
         ArrayList<String> classes = getClasses(infile, new ArrayList<String>());
-        
+
         //Menu
         ActionListener[] menuButtons = new ActionListener[3];
         menuButtons[0] = new PanelSwitcher(-1);
@@ -60,7 +60,7 @@ public class Display extends JPanel
         classCreateButtons[0] = new PanelSwitcher(1);
         classCreateButtons[1] = new PanelSwitcher(-1);
         displayClassCreation = new ClassCreation(classCreateButtons, classes);
-        
+
         //ItemCreation
         ActionListener[] itemCreateButtons = new ActionListener[2];
         itemCreateButtons[0] = new PanelSwitcher(1);
@@ -83,7 +83,7 @@ public class Display extends JPanel
         }
         return foo;
     }
-    
+
     /**
      * Updates the panel
      */
@@ -102,22 +102,20 @@ public class Display extends JPanel
             removeAll();
             switch(panel){
                 case 0:
-                add(displayMenu);
-                break;
+                    add(displayMenu);
+                    break;
                 case 1:
-                add(displayCreateMenu);
-                break;
+                    add(displayCreateMenu);
+                    break;
                 case 2:
-                add(displayClassCreation);
-                break;
+                    add(displayClassCreation);
+                    break;
                 case 3:
-                add(displayItemCreation);
-                break;
-                case 4:
-                break;
+                    add(displayItemCreation);
+                    break;
                 default:
-                System.out.println("DEBUG: Panel="+panel);
-                break;
+                    JOptionPane.showMessageDialog(null,"Under Development");
+                    break;
             }
             update();
         }
