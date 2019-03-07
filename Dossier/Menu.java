@@ -18,8 +18,8 @@ public class Menu extends Window
     {
         super("Menu");
         JPanel center = new JPanel();
-        center.setLayout(new GridLayout(3,1));
-        String[] buttonNames = {"View Tasks","Reminders","New Task"};
+        center.setLayout(new GridLayout(2,1));
+        String[] buttonNames = {"View Tasks","New Task"};
         addButtons(center, buttonNames, buttonListeners);
         add(center, BorderLayout.CENTER);
         

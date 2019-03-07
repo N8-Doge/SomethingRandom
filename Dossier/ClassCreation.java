@@ -22,7 +22,10 @@ public class ClassCreation extends Window
         JPanel center = new JPanel();
         center.setLayout(new GridLayout(5,1));
         String[] fieldText = {"Class Name","Period # (Optional)"};
-        JLabel list = new JLabel("Classes:\n"+ classes);
+        
+        String classString = "";
+        
+        JLabel list = new JLabel("Classes:"+ classString);
         list.setFont(new Font("Arial",Font.ITALIC,12));
         center.add(list);
         addTextFields(center, fieldText);

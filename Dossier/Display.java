@@ -39,12 +39,14 @@ public class Display extends JPanel
 
         //ArrayList of classes
         ArrayList<String> classes = getClasses(infile, new ArrayList<String>());
-
+        ClassObject[] classNames = new ClassObject[classes.size()/2];
+        for(int i=0;i<classes.size();i++){
+        }
+        
         //Menu
-        ActionListener[] menuButtons = new ActionListener[3];
+        ActionListener[] menuButtons = new ActionListener[2];
         menuButtons[0] = new PanelSwitcher(-1);
-        menuButtons[1] = new PanelSwitcher(-1);
-        menuButtons[2] = new PanelSwitcher(1);
+        menuButtons[1] = new PanelSwitcher(1);
         displayMenu = new Menu(menuButtons);
         add(displayMenu);
 
