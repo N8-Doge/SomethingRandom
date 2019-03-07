@@ -16,14 +16,14 @@ public class ItemCreation extends Window
      * 
      * @param   buttonListeners   Listeners for buttons in class
      */
-    public ItemCreation(ActionListener[] buttonListeners, ArrayList<String> classes)
+    public ItemCreation(ActionListener[] buttonListeners, ClassObject[] classNames)
     {
         super("New Item");
         JPanel center = new JPanel();
         center.setLayout(new GridLayout(7,1));
-        String[] arr = new String[classes.size()];
-        for(int i=0;i<classes.size();i++)
-            arr[i]=classes.get(i);
+        String[] arr = new String[classNames.length];
+        for(int i=0;i<classNames.length;i++)
+            arr[i]=classNames[i].toString();
         JComboBox classList = new JComboBox(arr);
         center.add(classList);
         String[] fieldText = {"Item Name","Due Date (Optional)", "Notes (Optional)"};

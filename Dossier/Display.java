@@ -40,7 +40,8 @@ public class Display extends JPanel
         //ArrayList of classes
         ArrayList<String> classes = getClasses(infile, new ArrayList<String>());
         ClassObject[] classNames = new ClassObject[classes.size()/2];
-        for(int i=0;i<classes.size();i++){
+        for(int i=0;i<classes.size()/2;i++){
+            classNames[i]=new ClassObject(classes.get(2*i+1),classes.get(2*i));
         }
         
         //Menu
@@ -61,13 +62,13 @@ public class Display extends JPanel
         ActionListener[] classCreateButtons = new ActionListener[2];
         classCreateButtons[0] = new PanelSwitcher(1);
         classCreateButtons[1] = new PanelSwitcher(-1);
-        displayClassCreation = new ClassCreation(classCreateButtons, classes);
+        displayClassCreation = new ClassCreation(classCreateButtons, classNames);
 
         //ItemCreation
         ActionListener[] itemCreateButtons = new ActionListener[2];
         itemCreateButtons[0] = new PanelSwitcher(1);
         itemCreateButtons[1] = new PanelSwitcher(-1);
-        displayItemCreation = new ItemCreation(itemCreateButtons, classes);
+        displayItemCreation = new ItemCreation(itemCreateButtons, classNames);
     }
 
     /**

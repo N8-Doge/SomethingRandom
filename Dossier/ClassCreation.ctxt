@@ -1,5 +1,5 @@
 #BlueJ class context
-comment0.params=buttonListeners\ classes
-comment0.target=ClassCreation(java.awt.event.ActionListener[],\ java.util.ArrayList)
+comment0.params=buttonListeners\ classNames
+comment0.target=ClassCreation(java.awt.event.ActionListener[],\ ClassObject[])
 comment0.text=\r\n\ Creates\ the\ class\r\n\ \r\n\ @param\ \ \ buttonListeners\ \ \ Listeners\ for\ buttons\ in\ class\r\n
 numComments=1
