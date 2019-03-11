@@ -49,11 +49,11 @@ public abstract class Window extends JPanel
      * @param   c   Container where JTextFields go
      * @param   s   Array of Strings for JTextField tooltip
      */
-    public void addTextFields(Container c, String[] s){
+    public void addTextFields(Container c, String[] s, JTextField[] j){
         for(int i=0;i<s.length;i++){
             c.add(new JLabel(s[i]));
-            JTextField t = new JTextField();
-            c.add(t);
+            j[i] = new JTextField();
+            c.add(j[i]);
         }
     }
 }

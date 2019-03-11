@@ -17,33 +17,18 @@ public class Display extends JPanel
     private ClassCreation displayClassCreation;
     private ItemCreation displayItemCreation;
     private Scanner infile;
+    private String outfile, workdir, classesFile;
     /**
      * Default constructor
      */
     public Display()
     {
         //Initialize files if not exist
-        String workdir = System.getProperty("user.home")+"/.somethingrandom";
+        workdir = System.getProperty("user.home")+"/.somethingrandom";
         new File(workdir).mkdirs();
-        String classesFile = workdir+"/classes.txt";
-        File f = new File(classesFile);
-        try{
-            if(f.createNewFile()){
-                JOptionPane.showMessageDialog(null,"Created new files");
-            }
-            infile = new Scanner(f);
-        }
-        catch(Exception e){
-            System.out.println(""+e);
-        }
+        classesFile = workdir+"/classes.txt";
+        ClassObject[] classNames=getClassObject();
 
-        //ArrayList of classes
-        ArrayList<String> classes = getClasses(infile, new ArrayList<String>());
-        ClassObject[] classNames = new ClassObject[classes.size()/2];
-        for(int i=0;i<classes.size()/2;i++){
-            classNames[i]=new ClassObject(classes.get(2*i+1),classes.get(2*i));
-        }
-        
         //Menu
         ActionListener[] menuButtons = new ActionListener[2];
         menuButtons[0] = new PanelSwitcher(-1);
@@ -61,7 +46,7 @@ public class Display extends JPanel
         //ClassCreation
         ActionListener[] classCreateButtons = new ActionListener[2];
         classCreateButtons[0] = new PanelSwitcher(1);
-        classCreateButtons[1] = new PanelSwitcher(-1);
+        classCreateButtons[1] = new PanelSwitcher(4);
         displayClassCreation = new ClassCreation(classCreateButtons, classNames);
 
         //ItemCreation
@@ -82,7 +67,7 @@ public class Display extends JPanel
         if(infile.hasNext()){
             String next = scannerIn.next();
             foo = getClasses(scannerIn, s);
-            foo.add(next);
+            foo.add(0, next);
         }
         return foo;
     }
@@ -95,6 +80,56 @@ public class Display extends JPanel
         repaint();
     }
 
+    /**
+     * Appends class to file
+     */
+    public void createClass(){
+        outfile=displayClassCreation.getStoreText();
+        JOptionPane.showMessageDialog(null,"Created Class");
+        try{
+            File file = new File(classesFile);
+            FileWriter fr = new FileWriter(file, true);
+            fr.write(outfile);
+            fr.close();
+        }
+        catch(Exception e){System.out.println(e);}
+        
+        ClassObject[] newClasses = getClassObject();
+        
+        //Refresh ClassCreation
+        ActionListener[] classCreateButtons = new ActionListener[2];
+        classCreateButtons[0] = new PanelSwitcher(1);
+        classCreateButtons[1] = new PanelSwitcher(4);
+        displayClassCreation = new ClassCreation(classCreateButtons, newClasses);
+        
+        //Refresh ItemCreation
+        ActionListener[] itemCreateButtons = new ActionListener[2];
+        itemCreateButtons[0] = new PanelSwitcher(1);
+        itemCreateButtons[1] = new PanelSwitcher(-1);
+        displayItemCreation = new ItemCreation(itemCreateButtons, newClasses);
+    }
+
+    public ClassObject[] getClassObject(){
+        File f = new File(classesFile);
+        try{
+            if(f.createNewFile()){
+                JOptionPane.showMessageDialog(null,"Created new files");
+            }
+            infile = new Scanner(f);
+        }
+        catch(Exception e){
+            System.out.println(""+e);
+        }
+
+        //ArrayList of classes
+        ArrayList<String> classes = getClasses(infile, new ArrayList<String>());
+        ClassObject[] classNames = new ClassObject[classes.size()/2];
+        for(int i=0;i<classes.size()/2;i++){
+            classNames[i]=new ClassObject(classes.get(2*i),classes.get(2*i+1));
+        }
+        return classNames;
+    }
+
     private class PanelSwitcher implements ActionListener{
         private int panel;
         public PanelSwitcher(int panel){
@@ -105,20 +140,25 @@ public class Display extends JPanel
             removeAll();
             switch(panel){
                 case 0:
-                    add(displayMenu);
-                    break;
+                add(displayMenu);
+                break;
                 case 1:
-                    add(displayCreateMenu);
-                    break;
+                add(displayCreateMenu);
+                break;
                 case 2:
-                    add(displayClassCreation);
-                    break;
+                add(displayClassCreation);
+                break;
                 case 3:
-                    add(displayItemCreation);
-                    break;
+                add(displayItemCreation);
+                break;
+                case 4:
+                createClass();
+                add(displayMenu);
+                break;
                 default:
-                    JOptionPane.showMessageDialog(null,"Under Development");
-                    break;
+                JOptionPane.showMessageDialog(null,"Under Development");
+                add(displayMenu);
+                break;
             }
             update();
         }

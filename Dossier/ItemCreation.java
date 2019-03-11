@@ -27,7 +27,8 @@ public class ItemCreation extends Window
         JComboBox classList = new JComboBox(arr);
         center.add(classList);
         String[] fieldText = {"Item Name","Due Date (Optional)", "Notes (Optional)"};
-        addTextFields(center, fieldText);
+        JTextField[] reference = {new JTextField(), new JTextField(), new JTextField()};
+        addTextFields(center, fieldText, reference);
         add(center, BorderLayout.CENTER);
         
         JPanel south = new JPanel();

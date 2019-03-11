@@ -12,6 +12,7 @@ import java.awt.event.*;
 public class ClassCreation extends Window
 {
     private ClassObject[] classNames;
+    private JTextField[] fields;
     /**
      * Creates the class
      * 
@@ -27,7 +28,9 @@ public class ClassCreation extends Window
         viewClasses.addActionListener(new ViewClassesListener());
         center.add(viewClasses);
         String[] fieldText = {"Class Name","Period # (Optional)"};
-        addTextFields(center, fieldText);
+        JTextField[] reference = {new JTextField(), new JTextField()};
+        fields = reference;
+        addTextFields(center, fieldText, reference);
         add(center, BorderLayout.CENTER);
 
         JPanel south = new JPanel();
@@ -35,6 +38,18 @@ public class ClassCreation extends Window
         String[] lowerText = {"Back","Confirm"};
         addButtons(south, lowerText, buttonListeners);
         add(south, BorderLayout.SOUTH);
+    }
+    
+    public String getStoreText(){
+        String result = "\n";
+        if(fields[1].getText().equals("")){
+            result+="noperiod\n";
+        }
+        else{
+            result+=fields[1].getText()+"\n";
+        }
+        result+=fields[0].getText();
+        return result;
     }
 
     private class ViewClassesListener implements ActionListener{
