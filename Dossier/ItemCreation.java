@@ -11,6 +11,9 @@ import java.awt.event.*;
  */
 public class ItemCreation extends Window
 {
+    private JTextField[] fields;
+    private ClassObject[] classNames;
+    private JComboBox classList;
     /**
      * Creates the class
      * 
@@ -19,15 +22,18 @@ public class ItemCreation extends Window
     public ItemCreation(ActionListener[] buttonListeners, ClassObject[] classNames)
     {
         super("New Item");
+        this.classNames=classNames;
         JPanel center = new JPanel();
         center.setLayout(new GridLayout(7,1));
         String[] arr = new String[classNames.length];
-        for(int i=0;i<classNames.length;i++)
+        for(int i=0;i<classNames.length;i++){
             arr[i]=classNames[i].toString();
-        JComboBox classList = new JComboBox(arr);
+        }
+        classList = new JComboBox(arr);
         center.add(classList);
         String[] fieldText = {"Item Name","Due Date (Optional)", "Notes (Optional)"};
         JTextField[] reference = {new JTextField(), new JTextField(), new JTextField()};
+        fields=reference;
         addTextFields(center, fieldText, reference);
         add(center, BorderLayout.CENTER);
         
@@ -36,5 +42,34 @@ public class ItemCreation extends Window
         String[] lowerText = {"Back","Confirm"};
         addButtons(south, lowerText, buttonListeners);
         add(south, BorderLayout.SOUTH);
+    }
+    
+    public String getStoreText(){
+        String result = "\n"+classList.getSelectedItem().toString();
+        result+="\n"+fields[0].getText();
+        if(fields[1].getText().equals("")){
+            result+="\nnoduedate";
+        }
+        else{
+            result+="\n"+fields[1].getText();
+        }
+        if(fields[2].getText().equals("")){
+            result+="\nnonotes";
+        }
+        else{
+            result+="\n"+fields[2].getText();
+        }
+        return result;
+    }
+    
+    public void reset(ClassObject[] classNames){
+        this.classNames=classNames;
+        for(JTextField j:fields){
+            j.setText("");
+        }
+        classList.removeAllItems();
+        for(int i=0;i<classNames.length;i++){
+            classList.addItem(classNames[i].toString());
+        }
     }
 }

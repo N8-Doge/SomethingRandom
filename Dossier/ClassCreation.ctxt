@@ -1,9 +1,9 @@
 #BlueJ class context
-comment0.target=ClassCreation
-comment0.text=\r\n\ Menu\ to\ create\ a\ class\r\n\r\n\ @author\ \ \ \ \ \ Nathan\ Chen\r\n\ @version\ \ \ \ \ 3-5-19\r\n
-comment1.params=buttonListeners\ classNames
-comment1.target=ClassCreation(java.awt.event.ActionListener[],\ ClassObject[])
-comment1.text=\r\n\ Creates\ the\ class\r\n\ \r\n\ @param\ \ \ buttonListeners\ \ \ Listeners\ for\ buttons\ in\ class\r\n
-comment2.params=
-comment2.target=java.lang.String\ getStoreText()
+comment0.params=buttonListeners\ classNames
+comment0.target=ClassCreation(java.awt.event.ActionListener[],\ ClassObject[])
+comment0.text=\r\n\ Creates\ the\ class\r\n\ \r\n\ @param\ \ \ buttonListeners\ \ \ Listeners\ for\ buttons\ in\ class\r\n
+comment1.params=
+comment1.target=java.lang.String\ getStoreText()
+comment2.params=classNames
+comment2.target=void\ reset(ClassObject[])
 numComments=3

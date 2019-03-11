@@ -51,6 +51,13 @@ public class ClassCreation extends Window
         result+=fields[0].getText();
         return result;
     }
+    
+    public void reset(ClassObject[] classNames){
+        this.classNames=classNames;
+        for(JTextField j:fields){
+            j.setText("");
+        }
+    }
 
     private class ViewClassesListener implements ActionListener{
         public void actionPerformed(ActionEvent e){

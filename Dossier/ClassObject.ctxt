@@ -1,11 +1,10 @@
 #BlueJ class context
-comment0.target=ClassObject
-comment1.params=period\ name
-comment1.target=ClassObject(java.lang.String,\ java.lang.String)
+comment0.params=period\ name
+comment0.target=ClassObject(java.lang.String,\ java.lang.String)
+comment1.params=
+comment1.target=java.lang.String\ toString()
 comment2.params=
-comment2.target=java.lang.String\ toString()
+comment2.target=java.lang.String\ getPeriod()
 comment3.params=
-comment3.target=java.lang.String\ getPeriod()
-comment4.params=
-comment4.target=java.lang.String\ getName()
-numComments=5
+comment3.target=java.lang.String\ getName()
+numComments=4
