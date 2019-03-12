@@ -16,6 +16,7 @@ public class Display extends JPanel
     private CreateMenu displayCreateMenu;
     private ClassCreation displayClassCreation;
     private ItemCreation displayItemCreation;
+    private ListView displayListView;
     private Scanner infile;
     private String outfile, workdir, classesFile, itemsFile;
     /**
@@ -29,10 +30,11 @@ public class Display extends JPanel
         classesFile = workdir+"/classes.txt";
         itemsFile = workdir+"/items.txt";
         ClassObject[] classNames=getClassObject();
+        ItemObject[] tasks=getItemObject();
 
         //Menu
         ActionListener[] menuButtons = new ActionListener[2];
-        menuButtons[0] = new PanelSwitcher(-1);
+        menuButtons[0] = new PanelSwitcher(6);
         menuButtons[1] = new PanelSwitcher(1);
         displayMenu = new Menu(menuButtons);
         add(displayMenu);
@@ -55,6 +57,11 @@ public class Display extends JPanel
         itemCreateButtons[0] = new PanelSwitcher(1);
         itemCreateButtons[1] = new PanelSwitcher(5);
         displayItemCreation = new ItemCreation(itemCreateButtons, classNames);
+
+        //ListView
+        ActionListener[] listViewButtons = new ActionListener[1];
+        listViewButtons[0] = new PanelSwitcher(0);
+        displayListView = new ListView(listViewButtons, classNames, tasks);
     }
 
     /**
@@ -137,6 +144,22 @@ public class Display extends JPanel
         return classNames;
     }
 
+    public ItemObject[] getItemObject(){
+        File g = new File(itemsFile);
+        try{
+            infile = new Scanner(g);
+        }
+        catch(Exception e){
+            System.out.println(""+e);
+        }
+        ArrayList<String> classes = getClasses(infile, new ArrayList<String>());
+        ItemObject[] itemNames = new ItemObject[classes.size()/4];
+        for(int i=0;i<classes.size()/4;i++){
+            itemNames[i]=new ItemObject(classes.get(4*i),classes.get(4*i+1),classes.get(4*i+2),classes.get(4*i+3));
+        }
+        return itemNames;
+    }
+
     private class PanelSwitcher implements ActionListener{
         private int panel;
         public PanelSwitcher(int panel){
@@ -183,6 +206,9 @@ public class Display extends JPanel
                     displayItemCreation.whyNot(displayItemCreation.getFields());
                     add(displayItemCreation);
                 }
+                break;
+                case 6:
+                add(displayListView);
                 break;
                 default:
                 JOptionPane.showMessageDialog(null,"Under Development", "Warning", JOptionPane.WARNING_MESSAGE);

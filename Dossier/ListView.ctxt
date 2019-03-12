@@ -1,0 +1,6 @@
+#BlueJ class context
+comment0.target=ListView
+comment0.text=\r\n\ A\ JPanel\ that\ displays\ the\ tasks\ as\ a\ table\r\n\r\n\ @author\ Nathan\ Chen\r\n\ @version\ 3-11-19\r\n
+comment1.params=buttons\ classNames\ items
+comment1.target=ListView(java.awt.event.ActionListener[],\ ClassObject[],\ ItemObject[])
+numComments=2

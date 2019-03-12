@@ -1,0 +1,15 @@
+#BlueJ class context
+comment0.target=ItemObject
+comment1.params=period\ name\ date\ notes
+comment1.target=ItemObject(java.lang.String,\ java.lang.String,\ java.lang.String,\ java.lang.String)
+comment2.params=
+comment2.target=java.lang.String\ toString()
+comment3.params=
+comment3.target=java.lang.String\ getPeriod()
+comment4.params=
+comment4.target=java.lang.String\ getName()
+comment5.params=
+comment5.target=java.lang.String\ getDate()
+comment6.params=
+comment6.target=java.lang.String\ getNotes()
+numComments=7

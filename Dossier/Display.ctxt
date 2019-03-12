@@ -17,4 +17,6 @@ comment5.params=
 comment5.target=void\ createItem()
 comment6.params=
 comment6.target=ClassObject[]\ getClassObject()
-numComments=7
+comment7.params=
+comment7.target=ItemObject[]\ getItemObject()
+numComments=8
