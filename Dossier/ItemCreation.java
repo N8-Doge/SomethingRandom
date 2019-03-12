@@ -11,7 +11,7 @@ import java.awt.event.*;
  */
 public class ItemCreation extends Window
 {
-    private JTextField[] fields;
+    private JTextField[] fields = {new JTextField(), new JTextField(), new JTextField()};
     private ClassObject[] classNames;
     private JComboBox classList;
     /**
@@ -32,18 +32,57 @@ public class ItemCreation extends Window
         classList = new JComboBox(arr);
         center.add(classList);
         String[] fieldText = {"Item Name","Due Date (Optional)", "Notes (Optional)"};
-        JTextField[] reference = {new JTextField(), new JTextField(), new JTextField()};
-        fields=reference;
-        addTextFields(center, fieldText, reference);
+        addTextFields(center, fieldText, fields);
         add(center, BorderLayout.CENTER);
-        
+
         JPanel south = new JPanel();
         south.setLayout(new GridLayout(1,2));
         String[] lowerText = {"Back","Confirm"};
         addButtons(south, lowerText, buttonListeners);
         add(south, BorderLayout.SOUTH);
     }
-    
+
+    public JTextField[] getFields(){return fields;}
+
+    public boolean isValid(JTextField[] j){
+        String regex = "(0?[1-9]|1[012])-(0?[1-9]|[12][0-9]|3[01])-((20)\\d\\d)";
+        if(!j[1].getText().equals("")){
+            if(!j[1].getText().matches(regex)){
+                return false;
+            }
+        }
+        regex = "[a-zA-Z0-9 .!@#$%^&*()_+|-]+";
+        if(!j[0].getText().matches(regex)){
+            return false;
+        }
+        if(!j[2].getText().equals("")){
+            if(!j[2].getText().matches(regex)){
+                return false;
+            }
+        }
+        return true;
+    }
+
+    public void whyNot(JTextField[] j){
+        String message = "Text is invalid because:\n";
+        String regex = "(0?[1-9]|1[012])-(0?[1-9]|[12][0-9]|3[01])-((20)\\d\\d)";
+        if(!j[1].getText().equals("")){
+            if(!j[1].getText().matches(regex)){
+                message+="•Date does not match MM-DD-YYYY format\n";
+            }
+        }
+        regex = "[a-zA-Z0-9 .!@#$%^&*()_+|-]+";
+        if(!j[0].getText().matches(regex)){
+            message+="•Title can only contain a-zA-Z0-9 .!@#$%^&*()_+|-\n";
+        }
+        if(!j[2].getText().equals("")){
+            if(!j[2].getText().matches(regex)){
+                message+="•Notes can only contain a-zA-Z0-9 .!@#$%^&*()_+|-\n";
+            }
+        }
+        JOptionPane.showMessageDialog(null, message ,"Warning", JOptionPane.WARNING_MESSAGE);
+    }
+
     public String getStoreText(){
         String result = "\n"+classList.getSelectedItem().toString();
         result+="\n"+fields[0].getText();
@@ -61,7 +100,7 @@ public class ItemCreation extends Window
         }
         return result;
     }
-    
+
     public void reset(ClassObject[] classNames){
         this.classNames=classNames;
         for(JTextField j:fields){

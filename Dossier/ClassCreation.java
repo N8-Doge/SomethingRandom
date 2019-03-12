@@ -12,7 +12,7 @@ import java.awt.event.*;
 public class ClassCreation extends Window
 {
     private ClassObject[] classNames;
-    private JTextField[] fields;
+    private JTextField[] fields={new JTextField(""), new JTextField("")};
     /**
      * Creates the class
      * 
@@ -28,16 +28,46 @@ public class ClassCreation extends Window
         viewClasses.addActionListener(new ViewClassesListener());
         center.add(viewClasses);
         String[] fieldText = {"Class Name","Period # (Optional)"};
-        JTextField[] reference = {new JTextField(), new JTextField()};
-        fields = reference;
-        addTextFields(center, fieldText, reference);
+        addTextFields(center, fieldText, fields);
         add(center, BorderLayout.CENTER);
-
         JPanel south = new JPanel();
         south.setLayout(new GridLayout(1,2));
         String[] lowerText = {"Back","Confirm"};
         addButtons(south, lowerText, buttonListeners);
         add(south, BorderLayout.SOUTH);
+    }
+
+    public JTextField[] getFields(){return fields;}
+
+    public boolean isValid(JTextField[] j){
+        if(!j[1].getText().equals("")){
+            try{
+                int foo = Integer.parseInt(j[1].getText());
+            }
+            catch(NumberFormatException e){
+                return false;
+            }
+        }
+        if(!j[0].getText().matches("[a-zA-Z ]+")){
+            return false;
+        }
+        return true;
+    }
+
+    public void whyNot(JTextField[] j){
+        String message = "Text is invalid because:\n";
+        if(!j[1].getText().equals("")){
+            try{
+                int foo = Integer.parseInt(j[1].getText());
+            }
+            catch(NumberFormatException e){
+                message+="•Period must be a number\n";
+            }
+        }
+        if(!j[0].getText().matches("[a-zA-Z ]+")){
+            message+="•Class name can only contain letters and spaces\n";
+        }
+        JOptionPane.showMessageDialog(null, message ,"Warning", JOptionPane.WARNING_MESSAGE);
     }
     
     public String getStoreText(){
@@ -51,7 +81,7 @@ public class ClassCreation extends Window
         result+=fields[0].getText();
         return result;
     }
-    
+
     public void reset(ClassObject[] classNames){
         this.classNames=classNames;
         for(JTextField j:fields){

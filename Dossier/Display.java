@@ -65,10 +65,12 @@ public class Display extends JPanel
      */
     public ArrayList<String> getClasses(Scanner scannerIn, ArrayList<String> s){
         ArrayList<String> foo = s;
-        if(infile.hasNext()){
-            String next = scannerIn.next();
+        if(infile.hasNextLine()){
+            String next = scannerIn.nextLine();
             foo = getClasses(scannerIn, s);
-            foo.add(0, next);
+            if(!next.equals("")){
+                foo.add(0, next);
+            }
         }
         return foo;
     }
@@ -100,7 +102,7 @@ public class Display extends JPanel
         displayItemCreation.reset(newClasses);
         JOptionPane.showMessageDialog(null,"Created Class");
     }
-    
+
     public void createItem(){
         outfile=displayItemCreation.getStoreText();
         try{
@@ -110,7 +112,7 @@ public class Display extends JPanel
             fr.close();
         }
         catch(Exception e){System.out.println(e);}
-        JOptionPane.showMessageDialog(null,"Created Item");
+        JOptionPane.showMessageDialog(null,"Created Item", "Info", JOptionPane.INFORMATION_MESSAGE);
     }
 
     public ClassObject[] getClassObject(){
@@ -154,18 +156,36 @@ public class Display extends JPanel
                 add(displayClassCreation);
                 break;
                 case 3:
-                add(displayItemCreation);
+                if (getClassObject().length!=0){
+                    add(displayItemCreation);
+                }
+                else{
+                    add(displayCreateMenu);
+                    JOptionPane.showMessageDialog(null,"Create a class first", "Warning", JOptionPane.WARNING_MESSAGE);
+                }
                 break;
                 case 4:
-                createClass();
-                add(displayMenu);
+                if(displayClassCreation.isValid(displayClassCreation.getFields())){
+                    createClass();
+                    add(displayMenu);
+                }
+                else{
+                    displayClassCreation.whyNot(displayClassCreation.getFields());
+                    add(displayClassCreation);
+                }
                 break;
                 case 5:
-                createItem();
-                add(displayMenu);
+                if(displayItemCreation.isValid(displayItemCreation.getFields())){
+                    createItem();
+                    add(displayMenu);
+                }
+                else{
+                    displayItemCreation.whyNot(displayItemCreation.getFields());
+                    add(displayItemCreation);
+                }
                 break;
                 default:
-                JOptionPane.showMessageDialog(null,"Under Development");
+                JOptionPane.showMessageDialog(null,"Under Development", "Warning", JOptionPane.WARNING_MESSAGE);
                 add(displayMenu);
                 break;
             }

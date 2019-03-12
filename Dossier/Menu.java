@@ -19,7 +19,7 @@ public class Menu extends Window
         super("Menu");
         JPanel center = new JPanel();
         center.setLayout(new GridLayout(2,1));
-        String[] buttonNames = {"View Tasks","New Task"};
+        String[] buttonNames = {"View Tasks","Create"};
         addButtons(center, buttonNames, buttonListeners);
         add(center, BorderLayout.CENTER);
         
@@ -31,49 +31,27 @@ public class Menu extends Window
         add(south, BorderLayout.SOUTH);
     }
     
-    /**
-     * Listener class for Close Button
-     */
+    //Listener class for Close Button
     private class CloseListener implements ActionListener{
-        /**
-         * Closes program
-         * 
-         * @param   e   ActionEvent for button press
-         */
         public void actionPerformed(ActionEvent e){
             System.exit(0);
         }
     }
-    
-    /**
-     * Listener class for Info Button
-     */
+    //Listener class for Info Button
     private class InfoListener implements ActionListener{
-        /**
-         * Displays info as JOptionPane
-         * 
-         * @param   e   ActionEvent for button press
-         */
         public void actionPerformed(ActionEvent e){
             String s = "Group Project by:";
             s+="\nNathan Chen, Benjamin Tu";
-            s+="\nAlexis Raya, Leo Ding, Javier De La Cruz";
+            s+="\nAlexis Raya, Leo Ding";
+            s+="\nJavier De La Cruz";
             s+="\nPlease rate our project!";
-            JOptionPane.showMessageDialog(null,s);
+            JOptionPane.showMessageDialog(null,s, "Credits", JOptionPane.INFORMATION_MESSAGE);
         }
     }
-    
-    /**
-     * Listener class for Options Buttons
-     */
+    //Listener class for Options Buttons
     private class OptionsListener implements ActionListener{
-        /**
-         * Displays Options
-         * 
-         * @param   e   ActionEvent for button press
-         */
         public void actionPerformed(ActionEvent e){
-            JOptionPane.showMessageDialog(null,"Options in Development");
+            JOptionPane.showMessageDialog(null,"Under Development", "Warning", JOptionPane.WARNING_MESSAGE);
         }
     }
 }
