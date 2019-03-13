@@ -3,4 +3,5 @@ comment0.target=ListView
 comment0.text=\r\n\ A\ JPanel\ that\ displays\ the\ tasks\ as\ a\ table\r\n\r\n\ @author\ Nathan\ Chen\r\n\ @version\ 3-11-19\r\n
 comment1.params=buttons\ classNames\ items
 comment1.target=ListView(java.awt.event.ActionListener[],\ ClassObject[],\ ItemObject[])
+comment1.text=\r\n\ Constructor\ for\ ListView\ that\ creates\ the\ panel\r\n\ \r\n\ @param\ \ \ buttons\ \ \ \ \ Array\ of\ ActionListeners\ for\ the\ buttons\ of\ the\ panel\ to\ use\r\n\ @param\ \ \ classNames\ \ Array\ of\ ClassObjects\ for\ the\ panel\ to\ display\r\n\ @param\ \ \ items\ \ \ \ \ \ \ Array\ of\ ItemObjects\ for\ the\ panel\ to\ display\r\n
 numComments=2

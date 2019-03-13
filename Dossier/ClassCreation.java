@@ -11,8 +11,10 @@ import java.awt.event.*;
  */
 public class ClassCreation extends Window
 {
+    //Instance variables
     private ClassObject[] classNames;
     private JTextField[] fields={new JTextField(""), new JTextField("")};
+    
     /**
      * Creates the class
      * 
@@ -37,8 +39,16 @@ public class ClassCreation extends Window
         add(south, BorderLayout.SOUTH);
     }
 
+    /**
+     * Returns the JTextFields of the class
+     */
     public JTextField[] getFields(){return fields;}
 
+    /**
+     * Checks if the data in the JTextFields is valid for storing
+     * 
+     * @param   j   Array of JTextFields that is being checked
+     */
     public boolean isValid(JTextField[] j){
         if(!j[1].getText().equals("")){
             try{
@@ -54,6 +64,9 @@ public class ClassCreation extends Window
         return true;
     }
 
+    /**
+     * Tells the user with a JOptionPane why their text is invalid
+     */
     public void whyNot(JTextField[] j){
         String message = "Text is invalid because:\n";
         if(!j[1].getText().equals("")){
@@ -70,6 +83,9 @@ public class ClassCreation extends Window
         JOptionPane.showMessageDialog(null, message ,"Warning", JOptionPane.WARNING_MESSAGE);
     }
     
+    /**
+     * Returns a String that is used for storing in files
+     */
     public String getStoreText(){
         String result = "\n";
         if(fields[1].getText().equals("")){
@@ -82,6 +98,11 @@ public class ClassCreation extends Window
         return result;
     }
 
+    /**
+     * Resets the class with new class names and blank JTextFields
+     * 
+     * @param   classNames  Array of ClassObjects containing the class names
+     */
     public void reset(ClassObject[] classNames){
         this.classNames=classNames;
         for(JTextField j:fields){

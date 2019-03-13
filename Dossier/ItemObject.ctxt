@@ -1,15 +1,22 @@
 #BlueJ class context
 comment0.target=ItemObject
+comment0.text=\r\n\ ItemObject\ store\ data\ about\ an\ item/task\r\n\ \r\n\ @author\ \ Nathan\ Chen\r\n\ @version\ 3-12-19\r\n
 comment1.params=period\ name\ date\ notes
 comment1.target=ItemObject(java.lang.String,\ java.lang.String,\ java.lang.String,\ java.lang.String)
+comment1.text=\r\n\ Constructor\ for\ class\ that\ sets\ private\ data\r\n\ \r\n\ @param\ \ \ period\ \ String\ for\ period\ number\r\n\ @param\ \ \ name\ \ \ \ String\ for\ name\ of\ task\r\n\ @param\ \ \ date\ \ \ \ String\ for\ due\ date\r\n\ @param\ \ \ notes\ \ \ String\ for\ notes\ of\ the\ task\r\n
 comment2.params=
 comment2.target=java.lang.String\ toString()
+comment2.text=\r\n\ Overrides\ toString\ method\ with\ one\ that\ reads\ out\ for\ the\ program\r\n
 comment3.params=
 comment3.target=java.lang.String\ getPeriod()
+comment3.text=\r\n\ Returns\ period\ as\ a\ String\r\n
 comment4.params=
 comment4.target=java.lang.String\ getName()
+comment4.text=\r\n\ Returns\ item\ name\ as\ a\ string\r\n
 comment5.params=
 comment5.target=java.lang.String\ getDate()
+comment5.text=\r\n\ Returns\ due\ date\ as\ a\ string\r\n
 comment6.params=
 comment6.target=java.lang.String\ getNotes()
+comment6.text=\r\n\ Returns\ notes\ about\ item\ as\ a\ string\r\n
 numComments=7

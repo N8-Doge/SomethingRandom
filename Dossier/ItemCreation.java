@@ -11,6 +11,7 @@ import java.awt.event.*;
  */
 public class ItemCreation extends Window
 {
+    //Instance variables
     private JTextField[] fields = {new JTextField(), new JTextField(), new JTextField()};
     private ClassObject[] classNames;
     private JComboBox classList;
@@ -42,8 +43,16 @@ public class ItemCreation extends Window
         add(south, BorderLayout.SOUTH);
     }
 
+    /**
+     * Returns the JTextFields of the class
+     */
     public JTextField[] getFields(){return fields;}
 
+    /**
+     * Checks if the JTextFields are valid for data storage
+     * 
+     * @param   j   Array of JTextFields to check
+     */
     public boolean isValid(JTextField[] j){
         String regex = "(0?[1-9]|1[012])-(0?[1-9]|[12][0-9]|3[01])-((20)\\d\\d)";
         if(!j[1].getText().equals("")){
@@ -63,6 +72,11 @@ public class ItemCreation extends Window
         return true;
     }
 
+    /**
+     * Tells the user why their input is invalid using JOptionPane
+     * 
+     * @param   j   Array of JTextFields to check
+     */
     public void whyNot(JTextField[] j){
         String message = "Text is invalid because:\n";
         String regex = "(0?[1-9]|1[012])-(0?[1-9]|[12][0-9]|3[01])-((20)\\d\\d)";
@@ -83,6 +97,9 @@ public class ItemCreation extends Window
         JOptionPane.showMessageDialog(null, message ,"Warning", JOptionPane.WARNING_MESSAGE);
     }
 
+    /**
+     * Returns String of text to store in the data file
+     */
     public String getStoreText(){
         String result = "\n"+classList.getSelectedItem().toString();
         result+="\n"+fields[0].getText();
@@ -101,6 +118,11 @@ public class ItemCreation extends Window
         return result;
     }
 
+    /**
+     * Resets the Panel's JTextFields and class names
+     * 
+     * @param   classNames  Array of ClassObjects containing the names of the classes
+     */
     public void reset(ClassObject[] classNames){
         this.classNames=classNames;
         for(JTextField j:fields){

@@ -11,6 +11,13 @@ import java.awt.event.*;
  */
 public class ListView extends Window
 {
+    /**
+     * Constructor for ListView that creates the panel
+     * 
+     * @param   buttons     Array of ActionListeners for the buttons of the panel to use
+     * @param   classNames  Array of ClassObjects for the panel to display
+     * @param   items       Array of ItemObjects for the panel to display
+     */
     public ListView(ActionListener[] buttons, ClassObject[] classNames, ItemObject[] items){
         super("Tasks");
         

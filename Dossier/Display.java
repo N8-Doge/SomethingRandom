@@ -20,7 +20,7 @@ public class Display extends JPanel
     private Scanner infile;
     private String outfile, workdir, classesFile, itemsFile;
     /**
-     * Default constructor
+     * Default constructor, called by Driver when creating the class
      */
     public Display()
     {
@@ -103,13 +103,21 @@ public class Display extends JPanel
         }
         catch(Exception e){System.out.println(e);}
         ClassObject[] newClasses = getClassObject();
+        ItemObject[] newTasks = getItemObject();
         //Refresh ClassCreation
         displayClassCreation.reset(newClasses);
         //Refresh ItemCreation
         displayItemCreation.reset(newClasses);
         JOptionPane.showMessageDialog(null,"Created Class");
+        //Refresh ListView
+        ActionListener[] listViewButtons = new ActionListener[1];
+        listViewButtons[0] = new PanelSwitcher(0);
+        displayListView = new ListView(listViewButtons, newClasses, newTasks);
     }
 
+    /**
+     * Appends item to the item file
+     */
     public void createItem(){
         outfile=displayItemCreation.getStoreText();
         try{
@@ -120,8 +128,15 @@ public class Display extends JPanel
         }
         catch(Exception e){System.out.println(e);}
         JOptionPane.showMessageDialog(null,"Created Item", "Info", JOptionPane.INFORMATION_MESSAGE);
+        //Refresh ListView
+        ActionListener[] listViewButtons = new ActionListener[1];
+        listViewButtons[0] = new PanelSwitcher(0);
+        displayListView = new ListView(listViewButtons, getClassObject(), getItemObject());
     }
 
+    /**
+     * Returns array of ClassObjects with names of classes
+     */
     public ClassObject[] getClassObject(){
         File f = new File(classesFile);
         File g = new File(itemsFile);
@@ -144,6 +159,9 @@ public class Display extends JPanel
         return classNames;
     }
 
+    /**
+     * Returns array of ItemObjects with all tasks from text file
+     */
     public ItemObject[] getItemObject(){
         File g = new File(itemsFile);
         try{
