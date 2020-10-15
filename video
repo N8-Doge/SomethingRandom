@@ -1,0 +1,13 @@
+/h Criteria For Success That need to be demonstrated /h
+
+This program must be able to organize the client’s events
+ The program should be able to alert the client about each event they have
+Notifications should be able to be sent without the client needing to open the program
+ The user should be able to input their events
+The user should be able to input the date and time of their events
+ The user should be able to prioritize their events accordingly
+The program should be able to display which events are occuring that day
+ The program should be able to store the memory of the events inputted
+The program should be able to organize the events by categories given by the user
+Ie. Homework would go in the ‘School’ category
+The program should be able to save the events inputted even when the program close
